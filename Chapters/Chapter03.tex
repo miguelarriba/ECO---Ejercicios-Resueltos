@@ -1,4 +1,56 @@
 \chapter{Análisis comparativo}
+
+\section{Teoría previa}
+\subsection{Índices de rendimiento}
+\begin{itemize}
+    \item \textbf{CPI}
+    \[
+    \text{CPI}=\dfrac{\text{Ciclos}}{\text{Instruccion}}
+    \]
+    \item \textbf{MIPS}
+    \[
+    \text{MIPS}=
+    \dfrac{\text{Nº Instrucciones}}{\text{T. ejecución} \cdot 10^6}=
+    \dfrac{\text{Freq de reloj}}{\text{CPI} \cdot 10^6}
+    \]
+    \item \textbf{MFLOPS}
+    \[
+    \text{MFLOPS}=
+    \dfrac{\text{Nº instrucciones FP}}{\text{T. ejecución} \cdot 10^6}
+    \]
+\end{itemize}
+\subsection{¿Cómo expresar el rendimiento?}
+\begin{itemize}
+    \item \textbf{Media aritmética}
+    \[
+    x_a = \dfrac{1}{n}\sum_{i=1}^n x_i
+    \]
+    \item \textbf{Media armónica}
+    \[
+    x_f = \dfrac{n}{\sum_{i=1}^n \frac{1}{x_i}}
+    \]
+    \item \textbf{Media geométrica}
+    \[
+    x_g = (\prod_{i=1}^n x_i)^\frac{1}{n}
+    \]
+\end{itemize}
+\subsection{Diferencias estadísticamente significativas}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Images/tabla-t.png}
+\end{figure}
+Supongamos la ejecución de n programas en dos máquinas A y B. ¿Son significativas las diferencias obtenidas? Para saberlo utilizamos el intervalo de confianza:
+
+\begin{equation}
+\Large
+\bar{x} \pm t_{1-\frac{\alpha}{2},n-1} \cdot \dfrac{s}{\sqrt{n}}
+\end{equation}
+Donde:\begin{itemize}
+    \item \textbf{$t$} es el valor obtenido de la tabla T-student.
+    \item \textbf{$s$} es la desviación típica.
+    \item \textbf{$\alpha$} es el nivel de confianza.
+\end{itemize}
+\newpage
 \section{Ejercicios resueltos}
 \subsection{Ejercicio 1}
 \noindent
@@ -42,7 +94,6 @@ Otras                        & 15                        & 18                   
 \begin{enumerate}
     \item Calcular el tiempo medio de ejecución de una instrucción en cada procesador y utilizar el resultado para cuantificar la mejora conseguida por el procesador más rápido.
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-\textbf{Opción a}:
 \[\left.\begin{array}{ll}
 TP=0.25\cdot 70+0.35\cdot32+0.25\cdot 13+0.15\cdot 18=34.65\\
 TQ=0.25\cdot 72+0.35\cdot 27+0.25\cdot 10+0.15\cdot 12=31.75
@@ -51,11 +102,10 @@ TQ=0.25\cdot 72+0.35\cdot 27+0.25\cdot 10+0.15\cdot 12=31.75
 \[
 \text{ratio}=\dfrac{TP}{TQ}=1+\dfrac{9.13}{100}
 \]
-9.13 más rápido Q que R.
+Q es 9.13 veces más rápido que R.
 \end{tcolorbox}    
     \item Determinar el nuevo tiempo medio de ejecución de una instrucción en el procesador si un nuevo diseño consigue que todas las instrucciones se ejecuten un 15\% más rápidamente.
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-\textbf{Opción b}:
 \[
 T_{\text{mej}}R=\dfrac{34.65}{1.15}=30.13
 \]
@@ -189,7 +239,6 @@ B                & Altos G5350 (AMD Opteron 254) & 1788                   & 1918
 \begin{enumerate}
     \item ¿Cuál de los dos sistemas presenta mejor rendimiento? Cuantifique numéricamente la mejora.
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-\textbf{Opción a}:
 \[
 \text{SPEC}_{\text{int}}\_\text{base2000}=\dfrac{1788}{1347}
 \]
@@ -199,19 +248,16 @@ B                & Altos G5350 (AMD Opteron 254) & 1788                   & 1918
 \end{tcolorbox}    
     \item A la vista de los resultados anteriores, ¿afecta al rendimiento de ambos sistemas la optimización realizada por el compilador en las pruebas?
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-\textbf{Opción b}:
 \[
 \dfrac{\text{max}}{\text{min}}=7.2\%\quad\text{mejor con optimización}
 \]
 \end{tcolorbox}    
     \item ¿En qué medida se reflejará en los resultados anteriores una mejora importante en la unidad de coma flotante del procesador?
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-\textbf{Opción c}:\\
 Los índices SPEC solo se basan en aritmética entera.
 \end{tcolorbox}    
     \item ¿Cuál de los dos sistemas ejecutará el benchmark Whetstone más rápidamente?
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-\textbf{Opción d}:
 \end{tcolorbox}    
 \end{enumerate}
 \subsection{Ejercicio 8}
@@ -328,7 +374,7 @@ s^2=81.732-4.833=76.898
 s=\sqrt{76.89}=8.769
 \]
 \[
-\Vec{x}\pm t_{\dfrac{\alpha}{2}+7}\dfrac{s}{\sqrt{n}}=4.833\pm 2.365\cdot\dfrac{8.769}{\sqrt{9}}=(-2.079,11.745)
+\Vec{x}\pm t_{\dfrac{\alpha}{2}+7}\quad \dfrac{s}{\sqrt{n}}=4.833\pm 2.365\cdot\dfrac{8.769}{\sqrt{9}}=(-2.079,11.745)
 \]
 \textbf{Total intervalo}$\fd$ No diferencia significativa.\\
 \textbf{ENT}:
@@ -344,8 +390,6 @@ s=10.01
 \[
 (-2.26,21.41)\fd\text{No diferencia}
 \]
-\end{tcolorbox}
-\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
 \textbf{FLOAT}:
 \[
 \Vec{x}=1.04; s^2=59.188-1.04=58.148
