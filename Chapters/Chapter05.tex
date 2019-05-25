@@ -16,15 +16,33 @@
 \subsection{Fórmulas}
 \begin{multicols}{3}
 \[f(t) = F'(t)\]
-\[\lambda(t) = \frac{f(t)}{R(t)}\]
+\[\lambda(t) = \dfrac{f(t)}{R(t)}\]
 \[R(t) = e^{-\int_0^t \lambda(s) ds}\]
 \[R(t) = 1 - F(t)\]
-\[E(t)= \int_0^{\infty}t*f(t)dt\]
+\[E(t)= \int_0^{\infty}t\cdot f(t)dt\]
 \[R(t)= P(T>t)\]
 \end{multicols}
-
+\subsubsection{Distribución de Weibull}
+\begin{multicols}{3}
+\[T= W(k, \lambda)\]
+\[R(t)= e^{-(\dfrac{t}{\lambda})^k}\]
+\[E(t) = \lambda \Gamma (1+\dfrac{1}{k})\]
+\end{multicols}
+\subsubsection{Sistemas en serie}
+\begin{multicols}{2}
+\[R_s(t)= \prod_{i=1}^{k}R_i(t)\]
+\[\lambda_s(t)= \prod_{i=1}^{k}\lambda_i(t)\]
+\end{multicols}
+\subsubsection{Sistemas en paralelo}
+\[R_p(t)= 1-\prod_{i=1}^{k}F_i(t)\]
+\subsection{Sistemas k out of n}
+\[R_{koon}(t)= \sum_{j=k}^{n}\binom{n}{j}R(t)^j(1-R(t))^{n-j}\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
+\newpage% Observa como escribo con 2 teclados
+%Que haces??
+%pero cuantas manos tienes?? jajajjaja
+%%XDD una mano en cada teclado
+%jajaj, tienes dos cerebros ? Tengo mucha práctica O:
 \section{Ejercicios resueltos}
 %%%%%%%%%%%%%%%%%%
 \subsection{Ejercicio 1}
@@ -35,7 +53,7 @@ Se pide:
 \begin{enumerate}
     \item Obtención de la función de fiabilidad de un disco y su representación aproximada.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    $R(t) = 1 - F(t) = e^{-t/4}$\hspace{1cm}$\forall t \geq 0$\\
+    $R(t) = 1 - F(t) = e^{-t/4}$\quad$\forall t \geq 0$\\
     \begin{center}
         \begin{tikzpicture}
         \begin{axis}[
@@ -55,10 +73,10 @@ Se pide:
     \end{tcolorbox}
     \item Esperanza de vida o duración media de un disco.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    Sabemos que: $E(t)= \int_0^{\infty}t*f(t)dt$\\
+    Sabemos que: $E(t)= \int_0^{\infty}t\cdot f(t)dt$\\
     Y que $f(t) = F'(t) = -R'(t)$\\
     
-    Entonces: $f(t) = -(-\frac{1}{4}*e^{-t/4})= \frac{1}{4}e^{-t/4}$\\
+    Entonces: $f(t) = -(-\frac{1}{4}\cdot e^{-t/4})= \frac{1}{4}e^{-t/4}$\\
     
     Y por tanto la esperanza de vida es: $E(t)= \int_0^{\infty}\frac{t}{4}e^{-t/4}dt = 4$
     \end{tcolorbox}
@@ -80,8 +98,8 @@ Se pide:
     \end{itemize}
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
     \begin{itemize}
-        \item $P(T>t_0)\leq 0.99$; $R(t_0)\leq 0.99$; $e^{-t_0/4}\leq 0.99$; $-t_0/4 \leq ln(0.99)$; $-t_0 \leq 4*ln(0.99)$; $t_0 \geq 4*ln(0.99)$; $t_0 \geq 0.040$
-        \item $P(T>t_1)\leq 0.95$; $R(t_1)\leq 0.95$; $e^{-t_1/4}\leq 0.95$; $-t_1/4 \leq ln(0.95)$; $-t_1 \leq 4*ln(0.95)$; $t_1 \geq 4*ln(0.95)$; $t_1 \geq 0.2051$
+        \item $P(T>t_0)\leq 0.99$; $R(t_0)\leq 0.99$; $e^{-t_0/4}\leq 0.99$; $-t_0/4 \leq ln(0.99)$; $-t_0 \leq 4\cdot ln(0.99)$; $t_0 \geq 4\cdot ln(0.99)$; $t_0 \geq 0.040$
+        \item $P(T>t_1)\leq 0.95$; $R(t_1)\leq 0.95$; $e^{-t_1/4}\leq 0.95$; $-t_1/4 \leq ln(0.95)$; $-t_1 \leq 4\cdot ln(0.95)$; $t_1 \geq 4\cdot ln(0.95)$; $t_1 \geq 0.2051$
     \end{itemize}
     \end{tcolorbox}
 \end{enumerate}
@@ -117,13 +135,13 @@ donde la duración está expresada en años. Se pide:
     Y la función de densidad de fallos es:
     \[ f(t)=-R'(t)=\begin{cases} 
       e^{-t} & 0<t<1 \\
-      2t*e^{-t^2} & 1\leq t 
+      2t\cdot e^{-t^2} & 1\leq t 
     \end{cases}
     \]
     \end{tcolorbox}
     \item La tasa de fallos. ¿Es constante en cualquier intervalo?
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    Recordemos que la tasa de fallos $\lambda(t) = \frac{f(t)}{R(t)}$, por tanto:
+    Recordemos que la tasa de fallos $\lambda(t) = \dfrac{f(t)}{R(t)}$, por tanto:
     \[ \lambda(t)=\begin{cases} 
       1 & 0<t<1 \\
       2t & 1\leq t 
@@ -133,7 +151,7 @@ donde la duración está expresada en años. Se pide:
     \end{tcolorbox}
     \item Probabilidad de que el sistema falle durante el primer año.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    $P(1<t)=1-R(1)=1-\frac{1}{e}= 0.6321$
+    $P(1<t)=1-R(1)=1-\dfrac{1}{e}= 0.6321$
     \end{tcolorbox}
     \item Probabilidad de que el sistema falle entre el segundo y el tercer año.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
@@ -146,7 +164,7 @@ donde la duración está expresada en años. Se pide:
 Sea T = tiempo hasta que se produce el primer intento de intrusión por determinados hackers en un sistema informático. Se conoce la función de riesgo
 \[ \lambda(t)=\begin{cases} 
       0 & 0<t<1 \\
-      \frac{2}{t} & t\geq 1 
+      \dfrac{2}{t} & t\geq 1 
    \end{cases}
 \]
 donde el tiempo se define en días. Se pide:
@@ -160,7 +178,7 @@ donde el tiempo se define en días. Se pide:
     \end{itemize}
     \[ R(t)=\begin{cases} 
       1 & 0<t<1 \\
-      \frac{1}{t^2} & t\geq 1 
+      \dfrac{1}{t^2} & t\geq 1 
    \end{cases}
     \]  
         \begin{center}
@@ -186,7 +204,7 @@ donde el tiempo se define en días. Se pide:
     \end{tcolorbox}
     \item Calcular la vida fiable de la variable asociada a un nivel de fiabilidad de 0.95 ¿Cada cuánto tiempo se recomienda cambiar la contraseña del sistema para garantizar dicha fiabilidad?
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    $P(T>t_1)\geq0.95$;\hspace{.5cm}$R(t_1)\geq0.95$;\hspace{.5cm}$\frac{1}{t^2_1}\geq0.95$;\hspace{.5cm}$t_1\leq 1.025$; 
+    $P(T>t_1)\geq0.95$;\quad$R(t_1)\geq0.95$;\quad$\dfrac{1}{t^2_1}\geq0.95$;\quad$t_1\leq 1.025$; 
     \end{tcolorbox}
 \end{enumerate}
 
@@ -194,7 +212,7 @@ donde el tiempo se define en días. Se pide:
 \subsection{Ejercicio 4}
 El  departamento  de  I+D  de  una  empresa,  ha  estimado  que  la  tasa  de fallos  de  un  procesador  de  última generación es
 \[ \lambda(t)=\begin{cases} 
-      \frac{1}{1+t} & 0<t<1 \\
+      \dfrac{1}{1+t} & 0<t<1 \\
       0.5 & t\geq 1
    \end{cases}
 \]
@@ -204,35 +222,35 @@ Sabiendo que el tiempo se mide en cientos de miles de horas, se pide:
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
     Primero calculamos la función de fiabilidad $R(t) = e^{-\int_0^t \lambda(s) ds}$.
     \begin{itemize}
-        \item Si $0<t<1$: $R(t)=e^{-\int_0^t \frac{1}{1+s} ds} = e^{-ln(1+t)} = \frac{1}{1+t}$
+        \item Si $0<t<1$: $R(t)=e^{-\int_0^t \frac{1}{1+s} ds} = e^{-ln(1+t)} = \dfrac{1}{1+t}$
         \item Si $t \geq 1$: $R(t)=\frac{1}{2}e^{\frac{1-t}{2}}$
     \end{itemize}
     Por tanto:
     \[ R(t)=\begin{cases} 
-      \frac{1}{1+t} & 0<t<1 \\
+      \dfrac{1}{1+t} & 0<t<1 \\
       \frac{1}{2}e^{\frac{1-t}{2}} & t\geq 1
    \end{cases}
     \]
     Y sabiendo que $F(t) = 1-R(t)$, calculamos la función de distribución:
     \[ F(t)=\begin{cases} 
-      1-\frac{1}{1+t} & 0<t<1 \\
+      1-\dfrac{1}{1+t} & 0<t<1 \\
       1-(\frac{1}{2}e^{\frac{1-t}{2}}) & t\geq 1
    \end{cases}
     \]
     \end{tcolorbox}
     \item Calcular la vida media de dichos procesadores.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    La vida media se define como: $E(t)= \int_0^{\infty}t*f(t)dt$\\
+    La vida media se define como: $E(t)= \int_0^{\infty}t\cdot f(t)dt$\\
     Por lo que primero necesitamos conocer la densidad de fallos $f(t)$.
     \[
     f(t)=-R'(t)=\begin{cases} 
-      \frac{1}{(1+t)^2} & 0<t<1 \\
+      \dfrac{1}{(1+t)^2} & 0<t<1 \\
       \frac{1}{4}e^{\frac{1-t}{2}} & t\geq 1
    \end{cases}
     \]
     Y ahora calculamos $E(t)$
     \[
-    E(t)= \int_0^{\infty}t*f(t)dt= \int_0^1\frac{t}{(1+t)^2}dt + \int_1^{\infty}\frac{t}{4}e^{\frac{1-t}{2}}dt = 1.643
+    E(t)= \int_0^{\infty}t\cdot f(t)dt= \int_0^1\dfrac{t}{(1+t)^2}dt + \int_1^{\infty}\frac{t}{4}e^{\frac{1-t}{2}}dt = 1.643
     \]
     \end{tcolorbox}
 \end{enumerate}
@@ -242,26 +260,57 @@ Para diseñar un sistema de comunicaciones se dispone de 10 componentes idéntic
 \begin{enumerate}
     \item Diseño en serie de 10: Suponiendo que las componentes tienen distribución exponencial y una duración media de cada componente de 8000 horas, que es lo que se ha estimado a partir de una muestra anterior.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    Si la esperanza de vida media de 1 componente son 8000 horas, la esperanza de vida de 10 componentes en serie será $E(S_{10})=\frac{8000}{10}=800$ horas.
+    Si la esperanza de vida media de 1 componente son 8000 horas, la esperanza de vida de 10 componentes en serie será $E(S_{10})=\dfrac{8000}{10}=800$ horas.
     \end{tcolorbox}
     \item Diseño en serie de 10 tras un estudio más minucioso que revela que la duración  de los componentes sigue realmente una distribución de Weibull con $k=2$ y $\lambda=10$.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-
+    Sabemos que: $T=W(k=2, \lambda=10)$ y que \\
+    $E(t) = \lambda \Gamma (1+\dfrac{1}{k})$\\
+    $R(t) = e^{-(\dfrac{t}{\lambda})^k}$\\
+    Recordamos que la función gamma $\Gamma(n) = (n-1)!$\\
+    
+    Primero sacamos la fiabilidad y la vida media para un componente:
+    \begin{itemize}
+        \item $R(t)= e^{-(\dfrac{t}{\lambda})^k}= e^{-(\dfrac{t}{10})^2}$
+        \item $E(t) = \lambda \Gamma (1+\dfrac{1}{k})= 10\Gamma(1+\frac{1}{2})=10\dfrac{\sqrt{\pi}}{2}$
+    \end{itemize}
+    Ahora hacemos los cálculos para todo el sistema, con 10 dispositivos en serie:
+    \begin{itemize}
+        \item $R_{s10}(t)=\prod_{i=1}^{10}R_i(t)=\prod_{i=1}^{10} e^{-(\dfrac{t}{10})^2}= e^{-10(\dfrac{t^2}{100})}= e^{-(\dfrac{t^2}{10})}= e^{-(\dfrac{t^2}{\sqrt{10}})^2}$
+    \end{itemize}
+    De aquí deducimos que: $W(k=2, \lambda=\sqrt{10})$
+    \begin{itemize}
+        \item $E_{s10}(t) = \lambda \Gamma (1+\dfrac{1}{k})= 10\Gamma(1+\frac{1}{2})=\sqrt{10}\cdot \dfrac{\sqrt{\pi}}{2}=2.8025$
+    \end{itemize}
     \end{tcolorbox}
-    \item Diseño en paralelo de dos series de 5 con la distribución anterior. En  este  caso, en lugar de la esperanza de vida se pide:
+    \item Diseño en paralelo de dos series de 5 con la distribución anterior. En este  caso, en lugar de la esperanza de vida se pide:
     \begin{enumerate}
         \item Calcular la probabilidad de que el sistema siga funcionando al cabo de 500 horas.
         \item Calcular la probabilidad de que el sistema siga funcionando al cabo de 5000 horas.
     \end{enumerate}
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.43\textwidth]{Images/P2S5.png}
+        \end{figure}
+        Primero calculamos la fiabilidad para una serie de 5:
+        \[R_{s5}=\prod_{i=1}^{5}R_i(t)=\prod_{i=1}^{5}e^{-(\dfrac{t}{10})^2}=e^{-5\cdot \dfrac{t^2}{100}}=e^{-(\dfrac{t}{\sqrt{20}})^2}
+        \]
+        Ahora hallamos la fiabilidad para el sistema en paralelo, usando la fórmula correspondiente:
+        \[R_{p2s5}=1-\prod_{i=1}^{n}F_i(t)=1-\prod_{i=1}^{n}1-R_i(t)=1-(1-R_{s5}(t))^2=1-(1-e^{\dfrac{t^2}{20}})^2
+        \]
+        Ya podemos calcular las probabilidades del sistema completo:
+        \begin{enumerate}
+            \item $P(T>500)=R_{p2s5}(1/2)=1-(1-e^{\dfrac{-1}{80}})^2=0.9998$
+            \item $P(T>5000)=R_{p2s5}(5)=1-(1-e^{\dfrac{-25}{20}})^2=0.4909$
+        \end{enumerate}
     \end{tcolorbox}
 \end{enumerate}
 %%%%%%%%%%%%%%%%%%
 \subsection{Ejercicio 6}
-El  proceso  de  arranque  de  cierto  tipo  de  procesadores  invadido  por un  virus  informático  presenta  una duración hasta fallo (en minutos)modelizada mediante la siguiente distribución:
+El  proceso  de  arranque  de  cierto  tipo  de  procesadores  invadido  por un  virus  informático  presenta  una duración hasta fallo (en minutos) modelizada mediante la siguiente distribución:
 \[ F(t)=\begin{cases} 
-      \frac{1}{10}(t^3+t) & 0<t<2 \\
+      \dfrac{1}{10}(t^3+t) & 0<t<2 \\
       1 & t\geq 2 
    \end{cases}
 \]
@@ -269,14 +318,31 @@ Sabiendo que el sistema de arranque normal tarda 180 segundos, se pide:
 \begin{enumerate}
     \item Hallar la función de fiabilidad del proceso de arranque y la función de riesgo asociada.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-
-    \end{tcolorbox}\textbf{}
+    \[ R(t)=1-F(t)=\begin{cases} 
+      1-\dfrac{1}{10}(t^3+t) & 0<t<2 \\
+      0 & t\geq 2 
+   \end{cases}
+    \]
+    Recordemos: $\lambda(t) = \dfrac{f(t)}{R(t)}$\\Sacamos la funcion de densidad $f(t)$:
+    \[ f(t)=F'(t)=\begin{cases} 
+      \dfrac{1}{10}(3t^2+1) & 0<t<2 \\
+      0 & t\geq 2 
+   \end{cases}
+    \]
+    Y la función de riesgo es:
+    \[ \lambda(t) = \dfrac{f(t)}{R(t)}=\begin{cases} 
+      \dfrac{3t^2+1}{10-t^3-t} & 0<t<2 \\
+      0 & t\geq 2 
+   \end{cases}
+    \]
+    \end{tcolorbox}
     \item Calcular el porcentaje de procesadores que completará el proceso de arranque con éxito.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-
+    El proceso de arranque tarda 3 minutos.\\
+    $P(T>3)=R(3)=0$
     \end{tcolorbox}
     \item Para  resolver  el  problema,  la  organización  ha  decidido instalar  un  antivirus  que  tarda  1  minuto  en eliminar  el  virus atacante.  Si  la  organización  posee  2000  equipos,  ¿cuántos  de  ellos se  espera  que realicen bien el proceso de arranque?
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-
+    $P(T>1)=R(1)=\dfrac{4}{5}$; Que son 1600 ordenadores.
     \end{tcolorbox}
 \end{enumerate}

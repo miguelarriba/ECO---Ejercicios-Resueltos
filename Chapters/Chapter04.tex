@@ -39,37 +39,37 @@ Por ejemplo una impresora puede tener varios trabajos para imprimir en cola, que
 \end{itemize}
 \subsection{Fórmulas y leyes}
 \begin{multicols}{2}
-\[\lambda = \frac{A}{T}[t/s]\]
-\[X = \frac{C}{T} = \frac{1}{D}[t/s]\]
-\[E_{rel}= \frac{|A-C|}{C}\]
+\[\lambda = \dfrac{A}{T}[t/s]\]
+\[X = \dfrac{C}{T} = \dfrac{1}{D}[t/s]\]
+\[E_{rel}= \dfrac{|A-C|}{C}\]
 \[E_{abs}=|A-C|\]
-\[U = \frac{B}{T}=X*S[s]\]
-\[S = \frac{U}{X}[s/t]\]
-\[S = \frac{B}{C}[s/t]\]
+\[U = \dfrac{B}{T}=X\cdot S[s]\]
+\[S = \dfrac{U}{X}[s/t]\]
+\[S = \dfrac{B}{C}[s/t]\]
 \[S=T_{posic}+T_{latencia}+T_{transf}[s/t]\]
-\[R = \frac{B}{T}\]
-\[R= \frac{1}{n}\sum_{i=1}^{n}R_i\]
-\[R = \sum_{i=1}^{n}V_i*R_i = \sum_{i=1}^{n}D_i[s]\]
+\[R = \dfrac{B}{T}[s]\]
+\[R= \dfrac{1}{n}\sum_{i=1}^{n}R_i[s]\]
+\[R = \sum_{i=1}^{n}V_i\cdot R_i = \sum_{i=1}^{n}D_i[s]\]
 \[R = \sum_{i=1}^{n}C_i-A_i[s]\]
 \[W = R-S[s]\]
-\[X(N)\leq min(\frac{N}{D+Z}, \frac{1}{D_b})\]
-\[D=V*S\]
-\[R(N)\geq max(D, N*D_b-Z)\]
+\[X(N)\leq min(\dfrac{N}{D+Z}, \dfrac{1}{D_b})\]
+\[D=V\cdot S\]
+\[R(N)\geq max(D, N\cdot D_b-Z)\]
 \end{multicols}
 
 \subsubsection{Hipótesis de flujo equilibrado}
     La Hipótesis de flujo equilibrado lo que supone es que la cantidad de tareas entantes es igual a la cantidad de tareas salientes: $A = C$.\\
     Esto implica que la tasa de llegadas coincide con la productividad: $\lambda = X$
 \subsubsection{Error cuadrático medio}
-    Cuando queremos calcular el error que supone asumir HFE con respecto a \textbf{varios periodos} de medición ($n$) debemos usar el error cuadrático medio. \[ECM = \frac{1}{n}\sum_{i=1}^{n}(A_i - C_i)^2 \]
+    Cuando queremos calcular el error que supone asumir HFE con respecto a \textbf{varios periodos} de medición ($n$) debemos usar el error cuadrático medio. \[ECM = \dfrac{1}{n}\sum_{i=1}^{n}(A_i - C_i)^2 \]
 \subsubsection{Ley de Little}
     Relaciona el número de trabajos en el sistema con el tiempo de permanencia y su productividad o tasa de llegada.\\
-    \[N = \lambda * R = X*R\]\\
+    \[N = \lambda \cdot R = X\cdot R\]\\
     La ley de little también se puede aplicar a programas en cola:\\
-    \[N = \lambda * W = X*W\]
+    \[N = \lambda \cdot W = X\cdot W\]
 \subsubsection{Ley de flujo forzado}
    Establece que el flujo a través de un determinado dispositivo determina el flujo en cualquier otro dispositivo. La ley es válida solo si también lo es la HFE.
-   \[X = V_i * X_0\]
+   \[X = V_i \cdot X_0\]
    donde $X$ es la productividad del sistema, $X_0$ es la productividad del dispositivo y $V_i$ es la razón de visitas al dispositivo.
    
 \subsubsection{Cuello de botella}
@@ -90,33 +90,33 @@ se ha podido medir el tiempo de respuesta de 9 peticiones. Estos tiempos, expres
         Lo que nos estan pidiendo es el error que tienen los resultados obtenidos con respecto a \textbf{HFE}.\\
         Existen dos tipos de errores:
         \begin{itemize}
-            \item \textbf{Error relativo}: normalmente lo calcularemos siempre con respecto a la salida (dividimos por $C_i$):\\ $E_r=\frac{|A_i - C_i|}{C_i}=\frac{1}{12}=0.083$\\
+            \item \textbf{Error relativo}: normalmente lo calcularemos siempre con respecto a la salida (dividimos por $C_i$):\\ $E_r=\dfrac{|A_i - C_i|}{C_i}=\dfrac{1}{12}=0.083$\\
             El error relativo es del 8,3\%
             \item \textbf{Error absoluto}: $E_a=|A_i-C_i|=1$
         \end{itemize}
-        Para los casos en los que queremos medir varios periodos debemos recurrir al \textbf{error cuadrático medio}. $ECM = \frac{1}{n}\sum_{i=1}^{n}(A_i - C_i)^2 = \frac{1}{10}\sum_{i=1}^{10}(A_i - C_i)^2$
+        Para los casos en los que queremos medir varios periodos debemos recurrir al \textbf{error cuadrático medio}. $ECM = \dfrac{1}{n}\sum_{i=1}^{n}(A_i - C_i)^2 = \dfrac{1}{10}\sum_{i=1}^{10}(A_i - C_i)^2$
         \end{tcolorbox}
     \item La tasa de llegadas de peticiones al disco y el tiempo entre llegadas.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-$\lambda = \frac{A}{T}=\frac{11}{30}=0.367[t/s]$; T entre llegadas $ = \frac{1}{\lambda}=\frac{30}{11}=2.73[s]$
+$\lambda = \dfrac{A}{T}=\dfrac{11}{30}=0.367[t/s]$; T entre llegadas $ = \dfrac{1}{\lambda}=\dfrac{30}{11}=2.73[s]$
     \end{tcolorbox}
     \item La productividad del disco.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-$X = \frac{C}{T}=\frac{12}{30}=0.4[t/s]$
+$X = \dfrac{C}{T}=\dfrac{12}{30}=0.4[t/s]$
     \end{tcolorbox}
     \item La utilización del disco.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
     En este caso, el tiempo de ocupación lo obtenemos de restar el tiempo de medición menos el tiempo que ha estado vacío:\\ $B = T-T_{vacio} = 30-2.5=27.5$\\\\
-    $U = \frac{B}{T}=\frac{27.5}{30}=0.917=91.7\%$
+    $U = \dfrac{B}{T}=\dfrac{27.5}{30}=0.917=91.7\%$
     \end{tcolorbox}
     \item El tiempo medio de servicio del disco.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-$S = \frac{U}{X}=\frac{0.917}{0.4}=2.29[s/t]$
+$S = \dfrac{U}{X}=\dfrac{0.917}{0.4}=2.29[s/t]$
     \end{tcolorbox}
     \item El tiempo medio de espera en cola.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
     Primero calculamos el tiempo de respuesta con la fórmula del sumatorio.\\
-    $R = \frac{1}{n}\sum_{i=1}^{n}R_i = \frac{1}{9}\sum_{i=1}^{9}R_i=5.73[s]$\\
+    $R = \dfrac{1}{n}\sum_{i=1}^{n}R_i = \dfrac{1}{9}\sum_{i=1}^{9}R_i=5.73[s]$\\
     Y sustituimos\\
     $W = R-S = 5.73-2.29=3.44[s]$
     \end{tcolorbox}
@@ -135,19 +135,19 @@ En un sistema cliente-servidor se considera que las transacciones usan 4ms de pr
     Servidor && 6   \\ \hline
     \end{tabular}\end{table}
     Como nos piden $S$ en segundos, simplemente tenemos que convertir:\\
-    $S_{cliente}=4*10^{-3}[s]$;  $S_{servidor}=6*10^{-3}[s]$
+    $S_{cliente}=4\cdot10^{-3}[s]$;  $S_{servidor}=6\cdot10^{-3}[s]$
     \end{tcolorbox}
     \item El tiempo de servicio S del disco en un caso general, es decir teniendo en cuenta el tiempo de posicionamiento, la latencia y el tiempo de transferencia.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-$S =T_{posic}+T_{latencia}+T_{transf}=8*10^{-3}+3.6*10^{-3}+0.04266*10^{-3}=11.64266*10^{-3}[s]$
+$S =T_{posic}+T_{latencia}+T_{transf}=8\cdot10^{-3}+3.6\cdot10^{-3}+0.04266\cdot10^{-3}=11.64266\cdot10^{-3}[s]$
     \end{tcolorbox}
     \item El tiempo de una transacción suponiendo dos casos: que los bloques estén grabados en pistas diferentes (peor caso) o situados de forma consecutiva (mejor caso).
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
     En todas las transacciones debemos de tener en cuenta el tiempo de transferencia.\\
     En el \textbf{caso peor} todas las transacciones implican posicionamiento y latencia, por tanto:\\
-    $12*S=12*11.64266*10^{-3}=139.7119*10^{-3}[s]$\\
+    $12\cdot S=12\cdot11.64266\cdot10^{-3}=139.7119\cdot10^{-3}[s]$\\
     En el \textbf{caso mejor} solo deberá posicionarse en el primer acceso, por tanto:\\
-    $12*T_{transf}+(T_{posic}+T_{latencia})=12*0.04266*10^{-3}+(8*10^{-3}+3.6*10^{-3})[s]$
+    $12\cdot T_{transf}+(T_{posic}+T_{latencia})=12\cdot0.04266\cdot10^{-3}+(8\cdot10^{-3}+3.6\cdot10^{-3})[s]$
     \end{tcolorbox}
     \item ¿Qué componentes del tiempo de servicio del disco influyen más en el rendimiento? ¿Por qué son importantes las operaciones de compactificación de discos?
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
@@ -170,10 +170,10 @@ B        & 23 minutos     \\ \hline
 \end{table}
 Calcula las siguientes variables operacionales deducidas del servidor web: tasa de llegadas, productividad, utilización y tiempo medio de servicio.
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-$\lambda = \frac{A}{T} = \frac{364}{30*60}=0.202[t/s]$; 
-$X = \frac{C}{T}=\frac{359}{30*60}=0.199[t/s]$\\\\
-$U = \frac{B}{T}=\frac{23*60}{30*60}=0.766[s]$; 
-$S = \frac{U}{X}=\frac{0.766}{0.199}=3.844[s/t]$
+$\lambda = \dfrac{A}{T} = \dfrac{364}{30\cdot60}=0.202[t/s]$; 
+$X = \dfrac{C}{T}=\dfrac{359}{30\cdot60}=0.199[t/s]$\\\\
+$U = \dfrac{B}{T}=\dfrac{23\cdot60}{30\cdot60}=0.766[s]$; 
+$S = \dfrac{U}{X}=\dfrac{0.766}{0.199}=3.844[s/t]$
 \end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%
 \subsection{Ejercicio 4}
@@ -183,11 +183,11 @@ Un procesador recibe una media de 5 programas por segundo. Cada programa experim
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
     El enunciado nos dice que: $S=0.14[s]$; $A=5[t]$; $R=8[s]$\\
     Sabemos que: \\
-    $S =\frac{U}{X}$;  $X = \frac{C}{T}$; $\lambda = \frac{A}{T}$\\
+    $S =\dfrac{U}{X}$;  $X = \dfrac{C}{T}$; $\lambda = \dfrac{A}{T}$\\
     Como no tenemos $C$, podemos asumir \textbf{HFE}, por tanto:\\
-    $S =\frac{U}{\lambda}$, y calculamos:\\\\
-    $\lambda = \frac{A}{T} = \frac{5}{1} = 5[t]$ al ser una media, ponemos $T=1$\\\\
-    $S =\frac{U}{\lambda}$; $U = S * \lambda = 0.14*5=0.7=70[\%]$ 
+    $S =\dfrac{U}{\lambda}$, y calculamos:\\\\
+    $\lambda = \dfrac{A}{T} = \dfrac{5}{1} = 5[t]$ al ser una media, ponemos $T=1$\\\\
+    $S =\dfrac{U}{\lambda}$; $U = S \cdot \lambda = 0.14\cdot5=0.7=70[\%]$ 
     \end{tcolorbox}
     \item Tiempo medio de espera en la cola del procesador.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
@@ -196,7 +196,7 @@ Un procesador recibe una media de 5 programas por segundo. Cada programa experim
     \item Número medio de programas en la cola de espera del procesador.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
     Aplicamos la ley de little:
-    $N=X*W=5*7.86=39.3[t]$
+    $N=X\cdot W=5\cdot7.86=39.3[t]$
     \end{tcolorbox}
 \end{itemize}
 
@@ -206,20 +206,20 @@ Después de monitorizar el procesador de un servidor web durante un periodo de 3
 \begin{enumerate}
     \item Porcentaje de error cometido al asumir la hipótesis del flujo equilibrado.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    Calculamos el error relativo: $E_r=\frac{|A_i - C_i|}{C_i}=\frac{2}{72}=0.027=2.7[\%]$\\
+    Calculamos el error relativo: $E_r=\dfrac{|A_i - C_i|}{C_i}=\dfrac{2}{72}=0.027=2.7[\%]$\\
     \end{tcolorbox}
     \item Tasa de llegadas al procesador.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    $\lambda = \frac{A}{T} = \frac{74}{30} = 2.46 [t/s]$
+    $\lambda = \dfrac{A}{T} = \dfrac{74}{30} = 2.46 [t/s]$
     \end{tcolorbox}
     \item Utilización del procesador.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    $U = \frac{B}{T} = \frac{27}{30} = 0.9[s] = 90[\%]$
+    $U = \dfrac{B}{T} = \dfrac{27}{30} = 0.9[s] = 90[\%]$
     \end{tcolorbox}
     \item Si cada trabajo realiza una media de cuatro visitas al procesador, ¿cuál es la productividad del servidor web?
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
     Para hallar la productividad de un dispositivo del sistema debemos aplicar la ley de flujo forzado:
-    $X_i = V_i * X_0$\\ Por tanto $X_0 = \frac{X}{V_i} = \frac{2.46}{4} = 0.6$
+    $X_i = V_i \cdot X_0$\\ Por tanto $X_0 = \dfrac{X}{V_i} = \dfrac{2.46}{4} = 0.6$
     \end{tcolorbox}
     \item Se han monitorizado 3 periodos adicionales de 30” y se han obtenido los siguientes datos:
     \begin{itemize}
@@ -229,11 +229,11 @@ Después de monitorizar el procesador de un servidor web durante un periodo de 3
     \end{itemize}
     Calcular el ECM de la hipótesis del flujo equilibrado, y los resultados de los apartados b-d para estos nuevos datos.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    $ECM = \frac{1}{n}\sum_{i=1}^{n}(A_i - C_i)^2 = \frac{1}{4}*(2^2 + 1^2 + 3^2 + 7^2) = \frac{63}{4}=15.75$
+    $ECM = \dfrac{1}{n}\sum_{i=1}^{n}(A_i - C_i)^2 = \dfrac{1}{4}\cdot(2^2 + 1^2 + 3^2 + 7^2) = \dfrac{63}{4}=15.75$
     \begin{itemize}
-        \item $\lambda = \frac{300}{120} = 2.5[t/s]$
-        \item $U = \frac{107}{120} = 0.89=89[\%]$
-        \item $X_0 = \frac{X}{V_i} = \frac{2.5}{4} = 0.625$
+        \item $\lambda = \dfrac{300}{120} = 2.5[t/s]$
+        \item $U = \dfrac{107}{120} = 0.89=89[\%]$
+        \item $X_0 = \dfrac{X}{V_i} = \dfrac{2.5}{4} = 0.625$
     \end{itemize}
     \end{tcolorbox}
 \end{enumerate}
@@ -246,10 +246,10 @@ Tenemos una unidad de disco duro cuya controladora dispone de cierta cantidad de
 
 Sabiendo que la memoria caché tiene una probabilidad de acierto del 95\%, se pide determinar el tiempo medio de servicio de la unidad de disco. Ídem en el caso de que la probabilidad de acierto sea del 98\%, 80\% y del 70\%.\\
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-Para $P=0.95$: $S = 0.1+(5+6+0.3)*0.05=0.665[ms]$\\
-Para $P=0.98$: $S = 0.1+(5+6+0.3)*0.02=0.326[ms]$\\
-Para $P=0.80$: $S = 0.1+(5+6+0.3)*0.2=2.36[ms]$\\
-Para $P=0.70$: $S = 0.1+(5+6+0.3)*0.3=3.49[ms]$
+Para $P=0.95$: $S = 0.1+(5+6+0.3)\cdot0.05=0.665[ms]$\\
+Para $P=0.98$: $S = 0.1+(5+6+0.3)\cdot0.02=0.326[ms]$\\
+Para $P=0.80$: $S = 0.1+(5+6+0.3)\cdot0.2=2.36[ms]$\\
+Para $P=0.70$: $S = 0.1+(5+6+0.3)\cdot0.3=3.49[ms]$
 \end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%
 \subsection{Ejercicio 7}
@@ -266,8 +266,8 @@ Disco 2     & 4  & 2,3    \\ \hline
 \end{table}
 Determina el tiempo medio de respuesta de una petición a este sistema informático. Si el número medio de peticiones activas en el sistema es 80, ¿cuál es la tasa de llegadas que soporta?
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-Tiempo medio de respuesta $R=\sum_{i=1}^{3}V_i*R_i=42.3[ms]$\\\\
-Ley de little: $N = \lambda * R$; $\lambda = \frac{N}{R}=\frac{80}{0.0423}=1891.25[t/s]$
+Tiempo medio de respuesta $R=\sum_{i=1}^{3}V_i\cdot R_i=42.3[ms]$\\\\
+Ley de little: $N = \lambda \cdot R$; $\lambda = \dfrac{N}{R}=\dfrac{80}{0.0423}=1891.25[t/s]$
 \end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%
 \subsection{Ejercicio 8}
@@ -283,24 +283,24 @@ Durante un periodo de medida de 5 segundos se ha obtenido la siguiente informaci
 \begin{enumerate}
     \item ¿Con qué precisión se cumple la ley del flujo equilibrado?
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    $E_r=\frac{|A-C|}{C}=\frac{|7-8|}{8}=0.125=12.5[\%]$
+    $E_r=\dfrac{|A-C|}{C}=\dfrac{|7-8|}{8}=0.125=12.5[\%]$
     \end{tcolorbox}
     \item ¿Cuál es la productividad y el tiempo medio de respuesta del disco?
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    $X=\frac{C}{T}=\frac{8}{5}=1.6[t/s]$\\
+    $X=\dfrac{C}{T}=\dfrac{8}{5}=1.6[t/s]$\\
     En este caso, para calcular $R$, debemos quedarnos con las peticiones de las que conocemos todos sus datos (en este caso 4, 5, 6, 7 y 8), que son 5 peticiones.
-    $R=\frac{1}{5}*\sum_{i=4}^{8}C_i-A_i = 1.002[s]$
+    $R=\dfrac{1}{5}\cdot \sum_{i=4}^{8}C_i-A_i = 1.002[s]$
     \end{tcolorbox}
     \item ¿Cuántas peticiones soporta de media el disco?
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    Ley de little: $N=X*R=1.6*1.002=1.6032 [t]$
+    Ley de little: $N=X\cdot R=1.6\cdot1.002=1.6032 [t]$
     \end{tcolorbox}
     \item ¿Cuál es la utilización y el tiempo de servicio del disco?
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    Recordemos que: $S=\frac{B}{C}$\\
+    Recordemos que: $S=\dfrac{B}{C}$\\
     Para obtener el tiempo ocupado ($B$) restamos el tiempo total de medición ($T$) menos el tiempo en el que no se ha estado ejecutando nada, de manera que:\\
     $B=5 - ((4.77-4.66) + (4.39-4.24) + (3.84-3.12)) = 4.02 [s]$\\
-    Entonces: $S=\frac{4.02}{8} = 0.5025[s]$
+    Entonces: $S=\dfrac{4.02}{8} = 0.5025[s]$
     \end{tcolorbox}
 \end{enumerate}
 
@@ -318,11 +318,11 @@ El tiempo medio entre llegadas de clientes es de 0,6 segundos. Se pide calcular:
     \item La tasa de llegadas al sistema.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
     Al tratarse de tiempo medio, usamos 1 como valor de $A$:\\
-    $\lambda = \frac{A}{C} = \frac{1}{0.6} = 1.66[t/s]$
+    $\lambda = \dfrac{A}{C} = \dfrac{1}{0.6} = 1.66[t/s]$
     \end{tcolorbox}
     \item Las demandas de servicio de los dispositivos.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    $D=V*S$
+    $D=V\cdot S$
     \begin{table}[H]\centering\begin{tabular}{|c|c|c|c|}\hline
     \textbf{Dispositivo}    & \textbf{Vi} & \textbf{Si[s]} & \textbf{D}\\ \hline
     Procesador (1) & 17 & 0.03 & 0.51   \\ \hline
@@ -341,8 +341,8 @@ El tiempo medio entre llegadas de clientes es de 0,6 segundos. Se pide calcular:
     \end{tcolorbox}
     \item La productividad de los dispositivos del sistema.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    Utilizamos la ley de flujo forzado: $X = V_i * X_0$; \\
-    $X_0 = \frac{X}{V_i}=[HFE]\frac{\lambda}{V_i}=\frac{1.66}{V_i}$
+    Utilizamos la ley de flujo forzado: $X = V_i \cdot X_0$; \\
+    $X_0 = \dfrac{X}{V_i}=[HFE]\dfrac{\lambda}{V_i}=\dfrac{1.66}{V_i}$
     \begin{table}[H]\centering\begin{tabular}{|c|c|c|c|c|}\hline
     \textbf{Dispositivo} & \textbf{Vi} & \textbf{Si(s)} & \textbf{D} & \textbf{$X_0$}\\ \hline
     Procesador (1) & 17 & 0.03 & 0.51 & 0.09\\ \hline
@@ -352,19 +352,28 @@ El tiempo medio entre llegadas de clientes es de 0,6 segundos. Se pide calcular:
     \end{tcolorbox}
     \item El valor máximo de la tasa de llegadas que soporta el sistema.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    $\lambda_{max}=X_{max}=\frac{1}{D_{max}}= \frac{1}{0.51}= 1.961[t/s]$
+    $\lambda_{max}=X_{max}=\dfrac{1}{D_{max}}= \dfrac{1}{0.51}= 1.961[t/s]$
     \end{tcolorbox}
     \item El tiempo de respuesta de cada dispositivo.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    
+    $R_i=(N_i+1)\cdot S_i$
+    \[
+    \left\{
+                \begin{array}{l}
+                  R_1 = 0.2[s]\\
+                  R_2 = 0.06[s]\\
+                  R_3 = 0.12[s]
+                \end{array}
+                \right.
+    \]
     \end{tcolorbox}
     \item El tiempo de respuesta del sistema informático.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    $R=\sum_{i=1}^nR_i*V_i=5[s]$
+    $R=\sum_{i=1}^nR_i\cdot V_i=5[s]$
     \end{tcolorbox}
     \item El número de trabajos que hay en el sistema.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    $N=\lambda*R=1.6*5=8.\overline{3}[t]$
+    $N=\lambda\cdot R=1.6\cdot5=8.\overline{3}[t]$
     \end{tcolorbox}
 \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%
@@ -383,7 +392,7 @@ Disco 2        & 3  & 0,75   \\ \hline
 \begin{enumerate}
     \item Identifica el cuello de botella.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    $D=V*S$
+    $D=V\cdot S$
         \begin{table}[H]\centering
         \begin{tabular}{|c|c|c|c|}\hline
         \textbf{Dispositivo}    & \textbf{Vi} & \textbf{Si[s]} & \textbf{D(s)}\\ \hline
@@ -396,22 +405,22 @@ Disco 2        & 3  & 0,75   \\ \hline
     \item Determina el tiempo mínimo de respuesta y la productividad máxima del sistema.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
     Tiempo mínimo de respuesta: $R_{min}=\sum_i^nD_i=2+2.25=4.25[s]$\\\\
-    La productividad máxima $X_{max} = \frac{1}{D_b}=\frac{1}{2.25}=0.\overline{4}[s]$
+    La productividad máxima $X_{max} = \dfrac{1}{D_b}=\dfrac{1}{2.25}=0.\overline{4}[s]$
     \end{tcolorbox}
     \item Calcula los límites del tiempo de respuesta y de la productividad.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    Con los límites del tiempo de respuesta nos están pidiendo el tiempo de respuesta máximo: \\$R(N)\geq max(D, N*D_b-Z) \geq max(4.25, 25*2.25-6) \geq 50.25[s]$\\\\
+    Con los límites del tiempo de respuesta nos están pidiendo el tiempo de respuesta máximo: \\$R(N)\geq max(D, N\cdot D_b-Z) \geq max(4.25, 25\cdot2.25-6) \geq 50.25[s]$\\\\
     El límite de la productividad se refiere a la productividad mínima: \\
-    $X(N)\leq min(\frac{N}{D+Z}, \frac{1}{D_b})\leq min(\frac{6}{4.25+6}, \frac{1}{2.25}) \leq 0.44 [t/s]$
+    $X(N)\leq min(\dfrac{N}{D+Z}, \dfrac{1}{D_b})\leq min(\dfrac{6}{4.25+6}, \dfrac{1}{2.25}) \leq 0.44 [t/s]$
     \end{tcolorbox}
     \item Calcula el punto teórico de saturación. A la vista de su valor, ¿el sistema se encuentra sometido a baja o alta carga?
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    $N^* = \lceil \frac{D+Z}{D_b} \rceil = \lceil \frac{4.25+6}{2.25} \rceil = \lceil 4.55 \rceil = 5$\\
+    $N^\cdot = \lceil \dfrac{D+Z}{D_b} \rceil = \lceil \dfrac{4.25+6}{2.25} \rceil = \lceil 4.55 \rceil = 5$\\
     Alta carga, ya que actualmente tiene 25 usuarios.
     \end{tcolorbox}
     \item Calcula el tiempo medio de respuesta del sistema.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-    $R=N*D_b - Z = 25*2.25-6=50.25[s]$
+    $R=N\cdot D_b - Z = 25\cdot2.25-6=50.25[s]$
     \end{tcolorbox}
 \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%
@@ -426,7 +435,22 @@ Se pide:
 \begin{enumerate}
     \item Representar  la  red  con  un  grafo  al  que  se  le  debe  añadir  un  nodo  A  que  represente  el  nodo fuente y considerar G como único nodo sumidero de la red.
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/411.jpg}
+\end{figure}
+\noindent
+Camino incremental: $\mu_1[t,s]=A-B-E-G\fd \alpha_1=4$
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{i} & A & A & A & B & C & C & C & D & E & F & G \\ \hline
+\textbf{i} & B & C & D & E & D & E & F & F & G & G & A \\ \hline
+\textbf{f} & 4 &   &   & 4 &   &   &   &   & 4 &   &   \\ \hline
+\textbf{c} & 6 & 4 & 1 & 4 & 3 & 1 & 3 & 4 & 4 & 9 & 8 \\ \hline
+\end{tabular}
+\end{table}
     \end{tcolorbox}
     \item Calcular  el  número  máximo  de  transacciones  realizables  en  cada  vuelta  a  la  red  (unidad  de tiempo) de forma que se cumplan las restricciones impuestas en la gestión del SI
     \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
@@ -457,5 +481,27 @@ Se  pide  dibujar  la  red  y  encontrar  el  flujo  máximo  (en  media  diaria
 ¿Qué alternativas de mejora se pueden plantear teniendo en cuenta estos datos?
 
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/412.jpg}
+\end{figure}
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{i} & PR & PR & PR & A & B & B & C & C & N   & D   & E & E  & T   \\ \hline
+\textbf{j} & A  & B  & C  & N & D & E & D & E & t   & t   & D & PR & PR  \\ \hline
+\textbf{f} & 3  & 5  & 6  & 3 & 3 & 3 & 4 & 2 & 3   & 12  & 5 & -  & 15  \\ \hline
+\textbf{c} & 5  & 6  & 6  & 3 & 8 & 3 & 4 & 4 & $\inf$ & $\inf$ & 5 & 4  & $\inf$ \\ \hline
+\end{tabular}
+\end{table}
+\[\left.\begin{array}{lllll}
+\mu_1=PR-B-E-D-t; \alpha_1=3\fd\alpha_1=\text{minimo flujo máximo del camino}\\
+\mu_2=PR-B-D-T; \alpha_2=3\\
+\mu_3=PR-A-N-3; \alpha_3=3\\
+\mu_4=PR-C-E-D-T; \alpha_4=2\\
+\mu_5=PR-C-D-T; \alpha_5=4
+\end{array}\right.
+\]
+15=flujo máximo
 \end{tcolorbox}

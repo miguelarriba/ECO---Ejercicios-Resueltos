@@ -1,2 +1,339 @@
-\chapter{Capítulo 2}
+\chapter{Monitores}
+
+\section{Teoría previa}
+Para comprobar el correcto funcionamiento de un sistema, nos interesa medir las variables siguientes:
+\begin{itemize}
+    \item Tiempo que tarda en producirse un evento.
+    \item Número de eventos que ocurren en una unidad de tiempo T
+\end{itemize}
+\subsection{Atributos de las herramientas de medida}
+\begin{itemize}
+    \item Interferencia o \textbf{sobrecarga} (overhead)
+    \[
+    \text{Sobrecarga} = \dfrac{\text{T. ejecución monitor}}{\text{Intervalo de medida}}
+    \]
+    \item Precisión
+    \item Resolución temporal
+    \item Ámbito o dominio de medida
+    \item Capacidad de síntesis de datos
+    \item Coste
+    \item Facilidad de instalación y uso
+\end{itemize}
+\subsection{Promedios de carga $l_1, l_2, l_3$}
+Los promedios de carga $l_1, l_2, l_3$ corresponden a los valores de carga de 1, 5, y 15 minutos antes.\\
+
+Tupla más inestable $(\alpha,0,0,...0,\beta,0,0,0,\gamma)$\\
+Más estable $(\alpha,\alpha,\alpha,...\alpha,\beta,\beta,\beta,\beta,\gamma)$
+\newpage
+\section{Ejercicios resueltos}
+\subsection{Ejercicio 1}
 \noindent
+En un sistema informático la ejecución de un monitor está constituida por 150 instrucciones máquina. El procesador tiene una velocidad de 75 MIPS. Se pide:
+\begin{enumerate}
+    \item Calcular el periodo de muestreo para no superar una sobrecarga del 5\%.
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+\[
+\text{overhead}=\dfrac{\text{tiempo ejecución monitor}}{\text{intervalo de medida}}=
+\]
+\[
+=\dfrac{150}{75\cdot 10^6}=2\cdot 10^6; \quad 0.05\geq \dfrac{2\cdot 10^{-6}}{T}
+\]
+\[
+\dfrac{2\cdot 10^6}{0.05}\geq T
+\]
+\end{tcolorbox}    
+    \item Con el periodo mínimo anterior, calcular el tamaño del fichero de resultados generado tras un periodo de 4 horas si en cada activación el monitor genera una palabra de 16 bits.
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+pal= 16 bits\\
+4 horas\\
+$t=40\cdot 10^{-6}$
+\[
+4\text{horas}=4\cdot 60\cdot 60=14400s
+\]
+\[
+\dfrac{14400}{40\cdot 10^{-6}}=360\cdot 10^6 \quad\text{de actuaciones del monitor}
+\]
+\[
+360\cdot 10^6\cdot 16=686.65\text{MB}
+\]
+\end{tcolorbox}    
+\end{enumerate}
+\subsection{Ejercicio 2}
+\noindent
+El resultado de la ejecución de vmstat 3 16 en un sistema informático con sistema operativo Linux, produce una columna r 8 1 5 2 2 2 2 4 2 2 3 6 8 3 3 3 y además se conoce que la suma de la columna \textbf{$u_s$} es 1227, la suma de la columna \textbf{$s_y$} es 155, la suma de la columna \textbf{$b_i$} es 85, la suma de la columna \textbf{$b_0$} es 19. También se conocen los datos iniciales siguientes: $u_s$=7, $s_y$=5, $b_i$=10, $b_0$=4.\\
+Se pide:
+\begin{enumerate}
+    \item ¿Cuál es el periodo de medida?
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+15 = 16-1, que son los intervalos intermedios.
+\[
+3\cdot 15=45
+\]
+\end{tcolorbox}    
+    \item ¿Cuál es el número medio de procesos en espera para ser ejecutados?
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+$r$ es el primero que no le considero.
+\[
+\Vec{r}=\dfrac{1}{15}\sum_{2}^{16}r=\dfrac{48}{16}=3.2
+\]
+Hay 3.2 procesos.
+\end{tcolorbox}    
+    \item ¿Cuál es la utilización media del procesador en modo usuario?
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+\[
+\Vec{u_s}=\dfrac{1}{15}\cdot(1227-7)=\dfrac{1220}{15}=81.33\%
+\]
+\end{tcolorbox}    
+    \item Calcular la sobrecarga media del procesador producida por el sistema operativo.
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+\[
+\Vec{s_y}=\dfrac{1}{15}\cdot(155-5)=\dfrac{150}{15}=10\%
+\]
+\end{tcolorbox}    
+    \item ¿Cuál ha sido en media la cantidad de bloques transferidos con los dispositivos de bloques?
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+\[
+\Vec{b_i}=\dfrac{1}{15}\sum_1^{16}bi=\dfrac{1}{15}(85-10)=\dfrac{75}{15}=5\%
+\]
+\[
+\Vec{b_0}=\dfrac{1}{15}\sum_2^{16}bo=\dfrac{15}{15}=1\%
+\]
+\end{tcolorbox}    
+\end{enumerate}
+\subsection{Ejercicio 3}
+\noindent
+Tras ejecutar la orden \textit{top} de Linux en un computador, se obtienen los siguientes datos:\\
+\begin{quote}
+    1:27pm up 1day 1:11, 3 users, load average: 2.46, 0.80, 0.28\\
+    CPU states: 82.5\% user, 0.5\% system, 17.0\% nice\\
+    Mem: 256464 k av, 251672 k used, 4792 k free\\
+\end{quote}
+
+Se pide:
+\begin{enumerate}
+    \item ¿Cuánta memoria física tiene el computador?
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+256464 k
+\end{tcolorbox}    
+    \item Porcentaje de memoria física en uso actual.
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+Used/total=98.131\%
+\end{tcolorbox}    
+    \item Uso medio del procesador.
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+como idle=0\% $\quad\fd\quad$ user+system+nice=100\%.
+\end{tcolorbox}    
+    \item ¿Cuál es el valor más inestable posible para la carga media obtenida?
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+Recordemos que:\\
+Tupla más inestable $(\alpha,0,0,...0,\beta,0,0,0,\gamma)$\\
+Más estable $(\alpha,\alpha,\alpha,...\alpha,\beta,\beta,\beta,\beta,\gamma)$
+\[\left.\begin{array}{lll}
+L_1=2.46\\
+L_2=0.8\\
+L_3=0.2
+\end{array}\right\rbrace\left.\begin{array}{lll}
+\alpha=0.2\\
+\gamma=2.46\\
+\beta=1.54
+\end{array}\right\rbrace(0{.}2,0,0...0,1{.}54,0,0,0,2{.}46)
+\]
+\end{tcolorbox}    
+\end{enumerate}
+\subsection{Ejercicio 4}
+\noindent
+Un sistema informático tiene instalado SAR y se activa cada 20 minutos tardando 450 ms en ejecutarse. En cada activación construye un registro de datos con la información obtenida y lo añade al histórico el día DD correspondiente. Se pide:
+\begin{enumerate}
+    \item Calcular la sobrecarga que produce la monitorización.
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+\[
+\dfrac{0.45}{20\cdot 60}=0.000375
+\]
+\end{tcolorbox}    
+    \item Calcular el tamaño del directorio var/log/sa a lo largo de dos semanas si el registro generado en cada activación ocupa 3 KB.
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+\[
+3\cdot\dfrac{24\cdot 60}{20}\cdot 14=3024K
+\]
+\end{tcolorbox}    
+    \item Si el volumen máximo del directorio var/log/sa es de 150 MB, ¿Cuántos ficheros históricos saDD se pueden almacenar?
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+\[
+\dfrac{150\cdot 1024}{\dfrac{24\cdot 60}{20}\cdot 3}=711
+\]
+\end{tcolorbox}    
+\end{enumerate}
+\subsection{Ejercicio 5}
+\noindent
+Un monitor software se activa cada 10 minutos y tarda 300 ms en ejecutarse en cada activación. Se pide:
+\begin{enumerate}
+    \item Estimar la sobrecarga producida al sistema informático.
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+\[
+\text{sobrecarga}=\dfrac{\text{tiempo}}{\text{periodo}}=\dfrac{0.3}{600}=5\cdot 10^{-4}
+\]
+\end{tcolorbox}    
+    \item Tamaño del directorio de datos a lo largo de tres semanas sabiendo que en cada activación se añaden 3KB.
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+Activacion= 3KB\\
+6 activaciones/hora
+\[
+3\cdot 7\cdot 24\cdot 6 = 3024
+\]
+\[
+3024 \cdot 3 = 9072KB
+\]
+\end{tcolorbox}
+    \item Tamaño del directorio de datos si en cada activación se almacena el doble de cantidad de KB que en la grabación anterior y sabiendo que en la primera activación se añaden 3KB. ¿Cuál sería el tamaño de disco necesario para almacenar el histórico semanal? Dar una cantidad aproximada en TB.
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+Tenemos la definición recursiva DR:
+\[\left.\begin{array}{ll}
+x_n=3KB\\
+x_{n+1}=2\cdot x_n
+\end{array}\right.
+\]
+Por inducción sacamos la definición explícita:
+\[x_n=3\cdot 2^n\]
+Y sacamos la serie:
+\[
+\sum_{0}^{1007}x_i=3\sum_0^{1007}2^n=3\left[\dfrac{2^{1007+1}-2^0}{2-1}\right]=3\cdot(2^{1008}-1)\text{KB}
+\]
+Concluimos que es demasiado.
+\end{tcolorbox}    
+\end{enumerate}
+\subsection{Ejercicio 6}
+\noindent
+Un monitor A se activa cada 20 minutos y tarda 500 ms en ejecutarse. En cada activación recoge datos que almacena en un archivo de tamaño variable entre 2 y 3 KB. Otro monitor B se activa cada vez que ocurre un evento cuya probabilidad es de 0.75 en cualquier periodo de 10 minutos. Cuando esto ocurre, se graba un archivo de tamaño 10 KB y cuando no ocurre, se graba la situación en una palabra de tamaño 8 bits. La ejecución del monitor B es de 2 segundos. Se pide:
+\begin{enumerate}
+    \item Estimar la sobrecarga producida al sistema informático por cada uno de los dos monitores A y B.
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+\[
+\text{overhead (sobrecarga)}_A=\dfrac{\text{tiempo}}{\text{periodo}}=\dfrac{0.5}{1200}=4.16\cdot 10^{-4}=0.41\%
+\]
+\[
+\text{sobrecarga}_B=\dfrac{2}{10\cdot 60}\cdot 0.7=0.24s
+\]
+\end{tcolorbox}    
+    \item Tamaño del directorio de datos a lo largo de una semana para cada caso.
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+\textbf{Monitor A}\\
+Archiva 504 veces por semana.\\
+$\text{Tamaño}=[2\cdot 504,3\cdot 504]=[1008,1512]$.\\
+
+\textbf{Monitor B:}
+\[
+\dfrac{10080}{10}=1008\left\lbrace\begin{array}{ll}
+0.75\fd 756\cdot 10\text{KB}\\
+0.25\fd 252\cdot 8\text{bits}
+\end{array}\right.
+\]
+\quad \quad \quad \quad Suma media ponderada 7560.24 KB.
+\end{tcolorbox}    
+    \item ¿Cuál sería el monitor más adecuado para implantar en un sistema informático supuesto que los datos recogidos son de calidad (información) similar?
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+El A es muchísimo mejor.
+\end{tcolorbox}    
+\end{enumerate}
+\subsection{Ejercicio 7}
+\noindent
+Analiza el comportamiento que se infiere de la siguiente Load Average: 6.85 ; 7.37 ; 7.83. Determina la muestra de más estacionaria y la más variable en los últimos 15 minutos acorde con los datos proporcionados. Calcula la varianza máxima y proporciona la desviación típica máxima como un indicador de alerta para el sistema informático.
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+Tenemos un sistema no estable:
+\[\left.\begin{array}{lll}
+l_1=6.85\\
+l_2=7.37\\
+l_3=7.83
+\end{array}\right\rbrace\left.\begin{array}{ll}
+L_2=\dfrac{1}{5}\sum_1^{15}x_i\\\\
+L_3=\dfrac{1}{15}\sum_1^{15}x_i
+\end{array}\right.
+\]
+Recordemos que:\\
+Tupla más inestable $(\alpha,0,0,...0,\beta,0,0,0,\gamma)$\\
+Más estable $(\alpha,\alpha,\alpha,...\alpha,\beta,\beta,\beta,\beta,\gamma)$
+\[\left.\begin{array}{lll}
+\gamma=L_1\\\\
+\dfrac{\beta+0+0+0+\gamma}{5}=L_2\\\\
+\dfrac{\alpha+0+0...+0+\beta+0,0,0+\gamma}{15}=L_3
+\end{array}\right.\fd\left.\begin{array}{lll}
+\beta=29.9\\
+\alpha=80.7\\
+\gamma=6.85
+\end{array}\right.
+\]
+La más inestable: (80.7,0...0,29.9,0,0,0,6.85).\\
+La más estable: (8.07,8.07,...8.07,7.47,7.47,7.47,7.47).\\
+
+\textbf{Varianza máxima y mínima:}
+\[
+\text{VAR}=E[x^2]-E[x]^2=\dfrac{80\cdot 7^2+29\cdot 9^2+6\cdot 85^2}{15}-\left(\dfrac{80\cdot 7+29\cdot 9+6\cdot 85}{15}\right)^2=435.38
+\]
+\end{tcolorbox}
+\subsection{Ejercicio 8}
+\noindent
+Se sabe que la sobrecarga de un monitor software sobre un computador es del 4\%. Si el monitor se activa cada 2 segundos.
+\begin{enumerate}
+    \item ¿Cuánto tiempo tarda el monitor en ejecutarse por cada activación?
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+\[
+0.04=\dfrac{x}{2}\fd x=0.08s
+\]
+\end{tcolorbox}    
+    \item En cada activación se almacena un registro de 5 bytes, ¿cuánto ocupará el directorio de datos tras dos semanas sabiendo que actualmente almacena un histórico de tres semanas más?
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+Activacion= 5B en sistemas 302400 segundos.
+\[
+\dfrac{3024000}{2}=151200\quad\text{activaciones en 5 segundos}
+\]
+\[
+1512000\cdot 5=7560000=7.21\text{MB}
+\]
+\end{tcolorbox}    
+    \item Se pretende reducir el overhead en un 500\% sin modificar el monitor, ¿cada cuánto tiempo deberán programarse las instancias?
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+\[
+1+\dfrac{500}{100}\cdot\dfrac{0.04}{6}\geq\dfrac{0.08}{7}\fd f\geq 12s
+\]
+\end{tcolorbox}    
+\end{enumerate}
+\subsection{Ejercicio 9}
+\begin{enumerate}
+    \item Se ha ejecutado la siguiente orden en un sistema: \textbf{\$ time quicksort}
+\begin{lstlisting}[language=C]
+real 0m40.2s
+user 0m17.1s
+sys 0m3.2s
+\end{lstlisting}    
+Indicar si el sistema está soportando mucha o poca carga. Razonar la respuesta.
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+Mucha, porque prácticamente el doble está ocupada por otros elementos.
+\end{tcolorbox}
+\item El monitor sar se activa cada 15 minutos y tarda 750 ms en ejecutarse por cada activación. Calcular la sobrecarga que genera este monitor sobre el sistema.
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+\[
+\text{sobrecarga}=\dfrac{750\cdot 10^{-3}}{15\cdot 60}=0.08\%
+\]
+\end{tcolorbox}
+\item La información generada en cada activación ocupa 8192 bytes, ¿cuántos ficheros históricos del tipo saDD se pueden almacenar en /var/log/sa si se dispone únicamente de 200 MB de capacidad libre?
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+\[
+24\cdot 4=96\text{activaciones/día}
+\]
+\[
+\dfrac{200\cdot 1024}{96\cdot 81926}=266.66\fd 266.66\quad\text{ficheros históricos}
+\]
+\end{tcolorbox}
+\end{enumerate}
+\subsection{Ejercicio 10}
+\noindent
+El día 8 de octubre se ha ejecutado la siguiente orden en un sistema: \textbf{\$ ls /var/log/sar}
+\begin{lstlisting}[language=C]
+-rw-r--r-- 1 root root 3049952 Oct 6 23:50 sa06
+-rw-r--r-- 1 root root 3049952 Oct 7 23:50 sa07
+-rw-r--r-- 1 root root 2372320 Oct 8 18:40 sa08
+\end{lstlisting} 
+¿Cada cuánto tiempo se activa el monitor \textbf{sar} instalado en el sistema? ¿Cuánto ocupa el registro de información almacenada cada vez que se activa el monitor?
+\begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+Hay 144 tramos de 10 minutos en 1 día.\\
+20.68KB lo que ocupa el registro en cada activación.
+\end{tcolorbox}
