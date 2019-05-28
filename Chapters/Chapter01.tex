@@ -371,7 +371,7 @@ Despejamos $f$ de la formula de Amdahl:
     \item Si la versión secuencial del programa se ejecuta en 325 segundos, ¿en cuánto tiempo lo hará con la actual configuración del multiprocesador?
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
 \[
-T_A=325\fd T_0=\dfrac{T_A}{A}=\dfrac{325}{3}=108.3
+T_A=325\fd T_0=\dfrac{T_A}{A}=\dfrac{325}{3}=108.3s
 \]
 \end{tcolorbox}    
     \item ¿Podría reducirse el tiempo de ejecución por debajo de 55 segundos ampliando el número de procesadores hasta 32?
@@ -383,12 +383,10 @@ No se consigue.
 \end{tcolorbox}    
     \item ¿Y con 16 procesadores y reduciendo a la mitad la fracción no paralelizable?
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+La fracción no paralelizable es $1-f = 0.2$, por tanto si la reducimos a la mitad su valor será $0.1$, y por tanto $f=0.9$.
 \[
-t_{\text{mej}}=325\cdot\left(0.1+\dfrac{0.9}{16}\right)=50.78
+t_{\text{mej}}=325\cdot\left(0.1+\dfrac{0.9}{16}\right)=50.78s
 \]
-Si se consigue.
+Sí, se consigue.
 \end{tcolorbox}    
 \end{enumerate}
-
-
-
