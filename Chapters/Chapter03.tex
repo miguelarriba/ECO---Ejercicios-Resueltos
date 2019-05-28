@@ -56,9 +56,9 @@ Donde:\begin{itemize}
 \noindent
 Un programa ejecuta un total de $120\times 10^6$instrucciones. De ellas, el 75\% se ejecutan en 3 ciclos de reloj, mientras que el resto lo hace en 5 ciclos. Tras medir el tiempo de ejecución de este programa mediante la orden time del sistema operativo se ha obtenido la siguiente información:
 \begin{lstlisting}[language=C]
-real 0m84s
-user 0m34s
-sys 0m1s
+real 0m 84s
+user 0m 34s
+sys  0m 1s
 \end{lstlisting} 
 Calcular el número medio de ciclos por instrucción (CPI) obtenidos por el programa, la frecuencia del procesador y los MIPS.
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
@@ -131,11 +131,11 @@ EXP                & $42\times10^6$            & 12                             
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
 Sin normalizar:
 \[
-\text{MFLOPS}=\dfrac{\text{nº inst}}{t\cdot 10^6}=\dfrac{120}{160}=1.35\text{MFLOPS}
+\text{MFLOPS}=\dfrac{\text{nº inst}}{t\cdot 10^6}=\dfrac{120}{160}=1.35\text{ MFLOPS}
 \]
 Normalizado:
 \[
-\text{MFLOPS}=\dfrac{78\cdot 10^6+29\cdot 10^6\cdot 3+13\cdot 10^6\cdot 8+42\cdot 10^6\cdot 12}{120\cdot 10^6}=6.442\text{MFLOPS}
+\text{MFLOPS}=\dfrac{78\cdot 10^6+29\cdot 10^6\cdot 3+13\cdot 10^6\cdot 8+42\cdot 10^6\cdot 12}{120\cdot 10^6}=6.442\text{ MFLOPS}
 \]
 \end{tcolorbox}
 \subsection{Ejercicio 4}
@@ -158,10 +158,10 @@ Calcular el valor medio de los MFLOPS obtenidos por el algoritmo ¿Cómo se dist
 x=\dfrac{1}{\sum\dfrac{wi}{xi}}
 \]
 \[
-\dfrac{1}{\dfrac{0.3}{1}+\dfrac{0.2}{10}+\dfrac{0.5}{100}}=3.08\text{MFLOPS}
+\dfrac{1}{\dfrac{0.3}{1}+\dfrac{0.2}{10}+\dfrac{0.5}{100}}=3.08\text{ MFLOPS}
 \]
 \[
-30\%\fd\dfrac{0.3}{0.325}=0.923\fd 92.3\%\quad\text{se ejecuta 1MFLOP}
+30\%\fd\dfrac{0.3}{0.325}=0.923\fd 92.3\%\quad\text{se ejecuta 1 MFLOP}
 \]
 \[
 20\%\fd\dfrac{0.02}{0.325}=0.062\fd 6.2\%\quad\text{a 10 MFLOP}
@@ -190,9 +190,9 @@ Media geométrica:
 \[
 X_t=\sqrt[n]{\prod_1^n xi}=\prod_1^n xi^{\dfrac{1}{w}}
 \]
-A$_{\text{base}}\fd x_1=\dfrac{210}{456}=4.61$; $x_2=\dfrac{2500}{792}=3.02$; $x_3=\dfrac{3200}{820}=3.9$; $n=3$.\\
-Solución A$_{\text{base}}=\text{SPEC}_A=100\cdot\sqrt[B]{4.61\cdot 3.02\cdot 3.9}=100\cdot\sqrt{4.61\cdot 3.02\cdot 3.9}$\\
-$\text{SPEC}_B=100\cdot\sqrt[3]{58.03}>100\sqrt[3]{54.29}$\\
+A$_{\text{base}}\fd x_1=\dfrac{210}{456}=4.61$; $x_2=\dfrac{2500}{792}=3.02$; $x_3=\dfrac{3200}{820}=3.9$; $n=3$.\\\\
+Solución A$_{\text{base}}=\text{SPEC}_A=100\cdot\sqrt[B]{4.61\cdot 3.02\cdot 3.9}=100\cdot\sqrt{4.61\cdot 3.02\cdot 3.9}$\\\\
+$\text{SPEC}_B=100\cdot\sqrt[3]{58.03}>100\sqrt[3]{54.29}$\\\\
 B es mejor que A.
 \end{tcolorbox}
 \subsection{Ejercicio 6}
