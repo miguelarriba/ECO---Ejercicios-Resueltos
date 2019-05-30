@@ -45,7 +45,7 @@ Y ahora sacamos el periodo de muestreo (o intervalo de medida) máximo:
 \end{tcolorbox}    
     \item Con el periodo mínimo anterior, calcular el tamaño del fichero de resultados generado tras un periodo de 4 horas si en cada activación el monitor genera una palabra de 16 bits.
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-pal= 16 bits\\
+Palabra = 16 bits\\
 4 horas\\
 $t=40\cdot 10^{-6}$
 \[
@@ -53,9 +53,10 @@ $t=40\cdot 10^{-6}$
 \]
 \[
 \dfrac{14400}{40\cdot 10^{-6}}=360\cdot 10^6 \quad\text{veces que se activa el monitor en 4 horas}
-\]
+\]\\
+Como 16 bits = 2 Bytes:
 \[
-360\cdot 10^6\cdot 16=686.65\text{MB}
+360\cdot 10^6\cdot 2 = 720 \cdot 10^6\text{ B}; \quad \dfrac{720 \cdot 10^6}{1024*1024}=686.65\text{ MB}
 \]
 \end{tcolorbox}    
 \end{enumerate}
@@ -292,12 +293,12 @@ Se sabe que la sobrecarga de un monitor software sobre un computador es del 4\%.
     \item ¿Cuánto tiempo tarda el monitor en ejecutarse por cada activación?
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
 \[
-0.04=\dfrac{x}{2}\fd x=0.08s
+\dfrac{x}{2}=0.04; \quad x=0.08s
 \]
 \end{tcolorbox}    
     \item En cada activación se almacena un registro de 5 bytes, ¿cuánto ocupará el directorio de datos tras dos semanas sabiendo que actualmente almacena un histórico de tres semanas más?
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-Activacion = 5B\\
+Activacion = 5 B\\
 2+3=5 semanas = 3024000 segundos.
 \[
 \dfrac{3024000}{2}=1512000\quad\text{activaciones en 5 semanas}
@@ -309,7 +310,7 @@ Activacion = 5B\\
     \item Se pretende reducir el overhead en un 500\% sin modificar el monitor, ¿cada cuánto tiempo deberán programarse las instancias?
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
 \[
-1+\dfrac{500}{100}\cdot\dfrac{0.04}{6}\geq\dfrac{0.08}{7}\fd f\geq 12s
+1+\dfrac{500}{100}=6;\quad \dfrac{0.04}{6}\geq\dfrac{0.08}{f};\quad f\geq 12s
 \]
 \end{tcolorbox}    
 \end{enumerate}
@@ -339,11 +340,15 @@ Tiempo de espera = real-(user+sys), por tanto mucha, porque prácticamente el do
 \end{tcolorbox}
 \item La información generada en cada activación ocupa 8192 bytes, ¿cuántos ficheros históricos del tipo saDD se pueden almacenar en /var/log/sa si se dispone únicamente de 200 MB de capacidad libre?
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
+Del apartado b) sabemos que el monitor se activa cada 15 minutos, osea 4 veces por hora, entonces:
 \[
 24\cdot 4=96\text{ activaciones/día}
 \]
+Ahora nos dicen que tenemos un espacio disponible de 200 MB, por tanto para saber cuántos ficheros caben en ese espacio dividimos el espacio disponible entre el espacio que ocupan los datos en 1 día.\\
+
+Es importante saber que debemos dividir entre el tamaño de los datos de \textbf{1 día}, ya que los ficheros tipo saDD se renuevan cada día.
 \[
-\dfrac{200\cdot 1024 \text{ bytes}}{96\cdot 8192\text{ bytes}}=266.66\fd 266.66\text{ ficheros históricos}
+\dfrac{(200\cdot 1024) \text{ bytes}}{96\cdot 8192\text{ bytes}}=266.66\text{ ficheros históricos}
 \]
 \end{tcolorbox}
 \end{enumerate}
@@ -357,6 +362,9 @@ El día 8 de octubre se ha ejecutado la siguiente orden en un sistema: \textbf{
 \end{lstlisting} 
 ¿Cada cuánto tiempo se activa el monitor \textbf{sar} instalado en el sistema? ¿Cuánto ocupa el registro de información almacenada cada vez que se activa el monitor?
 \begin{tcolorbox}[colback=white,colframe=cyan!50!black,fonttitle=\bfseries]
-Hay 144 tramos de 10 minutos en 1 día.\\
-20.68KB lo que ocupa el registro en cada activación.
+Es un monitor de tipo saDD.\\
+Por las horas de activación intuímos que el monitor se activa cada 10 minutos, por tanto hay 144 tramos de 10 minutos en 1 día.\\
+
+El registro ocupa 
+$\dfrac{3049952\text{ bytes}}{144\cdot1024}= 20.68\text{ KB}$ en cada activación.
 \end{tcolorbox}
